@@ -1,18 +1,19 @@
 ---
 layout: page
-title: About
+title: Chaeeun Kim
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+B.S. Student
+College of Computer Science  
+Kookmin University
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+* Location: Seoul, Korea
+* Email: chaeun78910 at gmail.com
+* WWW: [https://dongchime.github.io](https://dongchime.github.io)
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+## Research Interest
+* Large scale graph mining
 
-
-[jekyll-organization]: https://github.com/jekyll
+## Teaching
+* Computer Programming 1, Teaching Assistant, Kookmin Univ. (Spring 2019)
