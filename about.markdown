@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 ## Chaeeun Kim
-B.S. Student&nbsp;
+B.S. Student<br/>
 College of Computer Science  
 Kookmin University
 
