@@ -1,10 +1,12 @@
 ---
 layout: page
-title: Chaeeun Kim
+title: About
 permalink: /about/
 ---
 
+## Chaeeun Kim
 B.S. Student
+
 College of Computer Science  
 Kookmin University
 
