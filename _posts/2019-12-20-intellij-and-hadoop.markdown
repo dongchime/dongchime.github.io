@@ -34,6 +34,7 @@ categories: jekyll update
 ```
 
 - [ERROR] Source option 5 is no longer supported. Use 6 or later. 에러가 뜰 때 아래 내용 추가.
+
 ```xml
 <build>
         <plugins>
@@ -56,6 +57,7 @@ categories: jekyll update
 - 생성한 패키지 내에 WordCount class를 생성합니니다.
 - 아래 코드를 복붙합니다. 
 - 'WordCount.java'
+
 ```java
 package packagename;
 
@@ -146,6 +148,7 @@ public class WordCount extends Configured implements Tool{
 - src/test/java 내에 위와 같은 퍄키지 이름을 가진 패키지를 하나 생성합니다.
 - 패키지 내에 WordCountTest class를 생성합니다. 
 - WordCountTest.java
+
 ```java
 package packagename;
 
