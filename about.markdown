@@ -5,12 +5,12 @@ permalink: /about/
 ---
 
 ## Chaeeun Kim
-B.S. Student<br/>
+M.S. Candidiate<br/>
 College of Computer Science  
 Kookmin University
 
 * Location: Seoul, Korea
-* Email: chaeun78910 at gmail.com
+* Email: daleyblind17 at kookmin.ac.kr
 * WWW: [https://dongchime.github.io](https://dongchime.github.io)
 
 ## Research Interest
@@ -18,3 +18,13 @@ Kookmin University
 
 ## Teaching
 * Computer Programming 1, Teaching Assistant, Kookmin Univ. (Spring 2019)
+
+## Extra Activities
+* Administrator of cluster server (10 machines) in DMLab., Kookmin Univ.
+
+## Work Experience
+* Undergraduate reasearch intern, DMLab, Kookmin Univ. (Aug. 2019 - Feb. 2020)
+    + Advisor: Professor Ha-Myung Park
+* Software developer intern, [https://humanscape.io/kr](Humanscape). (Jun. 2019 - Aug. 2019)
+* Visiting researcher, ISG group, UC Irvine. (Jun. 2018 - Dec. 2018) 
+    + Advisor: Professor Chen Li
