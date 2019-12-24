@@ -25,6 +25,6 @@ Kookmin University
 ## Work Experience
 * Undergraduate reasearch intern, DMLab, Kookmin Univ. (Aug. 2019 - Feb. 2020)
     + Advisor: Professor Ha-Myung Park
-* Software developer intern, [https://humanscape.io/kr](Humanscape). (Jun. 2019 - Aug. 2019)
+* Software developer intern, [Humanscape](https://humanscape.io/kr/). (Jun. 2019 - Aug. 2019)
 * Visiting researcher, ISG group, UC Irvine. (Jun. 2018 - Dec. 2018) 
     + Advisor: Professor Chen Li
