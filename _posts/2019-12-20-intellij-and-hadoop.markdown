@@ -54,7 +54,7 @@ categories: jekyll update
 ### MapReduce 예제코드 
 - MapReduce의 Hello World 급인 WordCount 예제를 테스트 해봅시다.
 - src/main/java 디렉토리에서 패키지를 하나 생성합니다.
-- 생성한 패키지 내에 WordCount class를 생성합니니다.
+- 생성한 패키지 내에 WordCount class를 생성합니다.
 - 아래 코드를 복붙합니다. 
 - 'WordCount.java'
 
@@ -145,7 +145,7 @@ public class WordCount extends Configured implements Tool{
 ```
 
 ### WordCount 테스트 코드
-- src/test/java 내에 위와 같은 퍄키지 이름을 가진 패키지를 하나 생성합니다.
+- src/test/java 내에 위와 같은 패키지 이름을 가진 패키지를 하나 생성합니다.
 - 패키지 내에 WordCountTest class를 생성합니다. 
 - WordCountTest.java
 
