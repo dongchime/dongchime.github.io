@@ -23,7 +23,7 @@ Kookmin University
 * Administrator of cluster server (10 machines) in DMLab., Kookmin Univ.
 
 ## Work Experience
-* Undergraduate reasearch intern, DMLab, Kookmin Univ. (Aug. 2019 - Feb. 2020)
+* Undergraduate research intern, DMLab, Kookmin Univ. (Aug. 2019 - Feb. 2020)
     + Advisor: Professor Ha-Myung Park
 * Software developer intern, [Humanscape](https://humanscape.io/kr/). (Jun. 2019 - Aug. 2019)
 * Visiting researcher, ISG group, UC Irvine. (Jun. 2018 - Dec. 2018) 
