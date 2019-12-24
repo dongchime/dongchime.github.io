@@ -13,8 +13,8 @@ categories: jekyll update
 서버를 전부 7호관 서버실로 옮겨 설치한 후, 10대에 모두 Ubuntu 18.04.3 LTS를 설치해주었다.
 
 ### 네트워크 설정
-10대의 서버에 모두 우분투를 설치하고 네트워크를 설정해주었다. 
-![server-network](https://github.com/dongchime/dongchime.github.io/blob/master/assets/img/network.jpg)
+10대의 서버에 모두 우분투를 설치하고 네트워크를 설정해주었다.
+![server-network](./assets/img/network.jpg) <br />
 과사무실에서 받은 ip 주소를 master server에 외부 인터넷 고정 ip 주소로 설정하고, 위 사진처럼 나머지 9대의 서버와의 통신을 위해 swich ip 주소를 입력해 주었다. 그리고 나머지 9대의 서버도 swich ip 주소를 입력하여 서로 통신이 되도록 하였다. 
 
 ### OpenSSH 설치
