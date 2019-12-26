@@ -89,8 +89,8 @@ sudo dpkg -i libnfsidmap2_0.25-5.1_amd64.deb
 sudo dpkg -i nfs-common_1.3.4-2.1ubuntu5_amd64.deb
 ```
 
-- /etc/fstab 파일에 다음을 추가해준다. <br />
-```bash
+- /etc/fstab 파일에 다음을 추가해준다.
+```shell 
 <마스터서버>:/home /home nfs defaults 0 0
 ```
 
@@ -120,7 +120,7 @@ cat id_rsa.pub > authorized_keys
 rsync -avPd .ssh <client서버>
 ```
 
-이제 서버 접속시 암호를 요구하지 않는다!
+이제 서버 접속을 했고, 다른 서버로 로그인 할 때 암호를 요구하지 않는다!
 
 ### 6. LDAP 설치 
 업데이트 예정
