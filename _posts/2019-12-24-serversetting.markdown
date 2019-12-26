@@ -24,8 +24,21 @@ categories: jekyll update
 ![server-back](https://github.com/dongchime/dongchime.github.io/blob/master/assets/img/back.jpg?raw=true)
 
 ### OpenSSH 설치
-ip 주소를 알맞게 10대의 서버에 입력을 해주고, 다음에 해야할 것은 OpenSSH를 설치하여 원격으로 서버에 접속할 수 있도록 하는 것이다. master server는 외부 인터넷에 연결되어 있어서 OpenSSH를 간단하게 설치하였다.  
-나머지 서버들에는 usb에 OpenSSH 설치 파일을 미리 다운받아 놓고 각 서버에 하나씩 설치해주었다. 9대의 서버에 설치할 때에 dependency 문제때문에 까다로울 줄 알았는데 open-sftp-server, open-client만 따로 설치해주니까 금방 설치가 되었다.
+ip 주소를 알맞게 10대의 서버에 입력을 해주고, 다음에 해야할 것은 OpenSSH를 설치하여 원격으로 서버에 접속할 수 있도록 하는 것이다. master server는 외부 인터넷에 연결되어 있어서 OpenSSH를 간단하게 설치할 수 있었다.
+01. master server 의 터미널에서 openssh-server 설치
+```bash
+sudo apt update
+sudo apt install openssh-server
+```
+
+나머지 서버들에는 usb에 OpenSSH 설치 파일을 미리 다운받아 놓고 각 서버에 하나씩 설치해주었다. 9대의 서버에 설치할 때에 dependency 문제때문에 까다로울 줄 알았는데 openssh-sftp-server, openssh-client만 따로 설치해주니까 금방 설치가 되었다.
+02. 나머지 9대의 서버에도 설치하기
+usb에 openssh-server.deb, openssh-client.deb, openssh-sftp-server.deb 을 다운받아 9개의 서버에 하나씩 설치.
+```bash
+sudo dpkg -i openssh-sftp-server_7.9p1-10+deb10u1_amd64.deb
+sudo dpkg -i openssh-client_7.9p1-10+deb10u1_amd64.deb
+sudo dpkg -i openssh-server_7.6p1-4_amd64.deb
+```
 
 ### NFS 설치
 업데이트 예정

@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 ## Chaeeun Kim
-M.S. Candidiate<br/>
+M.S. Candidate<br/>
 College of Computer Science  
 Kookmin University
 
