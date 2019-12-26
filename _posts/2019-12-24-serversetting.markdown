@@ -90,8 +90,8 @@ sudo dpkg -i nfs-common_1.3.4-2.1ubuntu5_amd64.deb
 ```
 
 - /etc/fstab 파일에 다음을 추가해준다.
-```shell 
-<마스터서버>:/home /home nfs defaults 0 0
+```bash 
+p00:/home /home nfs defaults 0 0
 ```
 
 - 서버를 재부팅한다.
