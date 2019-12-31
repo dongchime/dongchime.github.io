@@ -145,7 +145,6 @@ basedn.ldif 파일에 아래 내용 추가
 dn: ou=Users,dc=<domain>,dc=co,dc=kr
 objectClass: organizationalUnit
 ou: Users
-
 dn: ou=Groups,dc=<domain>,dc=co,dc=kr
 objectClass: organizationalUnit
 ou: Groups
@@ -156,8 +155,7 @@ ou: Groups
 $ sudo ldapadd -x -D cn=admin,dc=<domain>,dc=co,dc=kr -W -f basedn.ldif
 ```
 
-- phpLDAPAdmin 설치하기
-ldap 서버를 편리하게 관리하기 위해 phpLDAPAdmin을 설치한다.
+<i>ldap 서버를 편리하게 관리하기 위해 phpLDAPAdmin을 설치한다.</i>
 
 먼저 phpLDAPAdmin 설치를 위한 패키지들을 설치해준다.
 ```bash
@@ -176,14 +174,10 @@ $ sudo cp config.php.example config.php
 ```
 
 config.php 파일을 열어 아래 내용을 수정한다. <br />
-`293번째 줄`
-servers->setValue('server','host','<ip주소>'); <br />
-`300번째 줄`
-servers->setValue('server','base',array('dc=<도메인>,dc=co,dc=kr')); <br />
-`335번째 줄`
-servers->setValue('server','tls',false); <br />
-`453번째 줄`
-servers->setValue('login','anon_bind',false); <br />
+293번째 줄 : servers->setValue('server','host','<ip주소>'); <br />
+300번째 줄 : servers->setValue('server','base',array('dc=<도메인>,dc=co,dc=kr')); <br />
+335번째 줄 : servers->setValue('server','tls',false); <br />
+453번째 줄 : servers->setValue('login','anon_bind',false); <br />
 
 ** 서버에 방화벽이 실향되고 있으면 80번, 443번 포트를 허용한다.
 ```bash
@@ -191,7 +185,7 @@ $ sudo ufw allow proto tcp from any to any port 80,443
 ```
 
 이제 브라우저에서 phpLDAPAdmin에 접속 가능하다. <br />
-http://<ip 주소>/phpldapadmin
+http://<아이피주소>/phpldapadmin
 
 admin으로 로그인 <br />
 Login DN: cn=admin,dc=<도메인>,dc=co,dc=kr <br />
@@ -216,29 +210,29 @@ $ sudo apt-get -y install libnss-ldap libpam-ldap ldap-utils nscd
 여섯번째 창에서 cn=admin,dc=<도메인>,dc=co,dc=kr <br />
 일곱번째 창에서 비밀번호 설정 <br />
 
-- configure authentication
+<i>configure authentication</i>
 ```bash
 $ sudo vim /etc/nsswitch.conf
 ```
 
-- nssitch.conf 파일에 아래 내용 수정
+nssitch.conf 파일에 아래 내용 수정
 ```bash
 passwd:         compat ldap
 group:          compat ldap
 shadow:         compat ldap
 ```
 
-- user의 홈 디렉토리 자동생성을 원하면 
+user의 홈 디렉토리 자동생성을 원하면 
 ```bash
 $ sudo vim /etc/pam.d/common-session
 ```
 
-- common-session 파일에 맨아래에 아래 내용 추가
+common-session 파일에 맨아래에 아래 내용 추가
 ```bash
 session required        pam_mkhomedir.so skel=/etc/skel umask=077
 ```
 
-- nscd 다시 시작
+nscd 다시 시작
 ```bash
 $ sudo service nscd restart
 ```
