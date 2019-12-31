@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "DMLab 서버 구축해보기"
+title:  "DMLab 클러스터 서버 구축해보기"
 date:   2019-12-24 17:26:22 +0900
 categories: jekyll update
 ---
@@ -116,13 +116,137 @@ $ ssh-keygen -t rsa
 $ cat id_rsa.pub > authorized_keys 
 ```
 
-- public key를 서버 9대에 나누어준다. 
-```bash
-$ rsync -avPd .ssh <client서버>
-```
-
 이제 서버 접속을 했고, 다른 서버로 로그인 할 때 암호를 요구하지 않는다!
 
 ### 6. LDAP 설치 
-업데이트 예정
+<b>먼저 LDAP 서버를 0번 서버에 설치해준다.</b>
+
+- 서버의 hostname 변경하기
+```bash
+$ sudo hostnamectl set-hostname <hostname>
+$ echo "<ip address> <hostname>" | sudo tee -a /etc/hosts
+```
+
+- ldap 설치하기
+```bash
+sudo apt update
+sudo apt -y install slapd ldap-utils
+```
+설치할 때 admin의 비밀번호 설정을 할 수 있다.
+
+설치가 완료되면 `$ sudo slapcat` 으로 SLAPD의 데이터베이스 내용 확인을 할 수 있다.
+
+- admin 계정 추가하기
+```bash
+$ sudo vim basedn.ldif
+```
+basedn.ldif 파일에 아래 내용 추가
+```bash
+dn: ou=Users,dc=<domain>,dc=co,dc=kr
+objectClass: organizationalUnit
+ou: Users
+
+dn: ou=Groups,dc=<domain>,dc=co,dc=kr
+objectClass: organizationalUnit
+ou: Groups
+```
+
+아래 명령 실행해서 admin 계정 추가
+```bash
+$ sudo ldapadd -x -D cn=admin,dc=<domain>,dc=co,dc=kr -W -f basedn.ldif
+```
+
+- phpLDAPAdmin 설치하기
+ldap 서버를 편리하게 관리하기 위해 phpLDAPAdmin을 설치한다.
+
+먼저 phpLDAPAdmin 설치를 위한 패키지들을 설치해준다.
+```bash
+$ sudo apt -y install apache2 php php-cgi libapache2-mod-php php-mbstring php-common php-pear
+$ sudo a2enconf php7.2-cgi
+$ sudo systemctl reload apache2
+```
+
+이제 phpLDAPAdmin을 다운받아 설치한다.
+```bash
+$ cd ~/Downloads
+$ git clone https://github.com/breisig/phpLDAPadmin.git
+$ sudo mv ~/Downloads/phpLDAPadmin /var/www/html/phpldapadmin
+$ cd /var/www/html/phpldapadmin/config
+$ sudo cp config.php.example config.php
+```
+
+config.php 파일을 열어 아래 내용을 수정한다. <br />
+`293번째 줄`
+servers->setValue('server','host','<ip주소>'); <br />
+`300번째 줄`
+servers->setValue('server','base',array('dc=<도메인>,dc=co,dc=kr')); <br />
+`335번째 줄`
+servers->setValue('server','tls',false); <br />
+`453번째 줄`
+servers->setValue('login','anon_bind',false); <br />
+
+** 서버에 방화벽이 실향되고 있으면 80번, 443번 포트를 허용한다.
+```bash
+$ sudo ufw allow proto tcp from any to any port 80,443
+```
+
+이제 브라우저에서 phpLDAPAdmin에 접속 가능하다. <br />
+http://<ip 주소>/phpldapadmin
+
+admin으로 로그인 <br />
+Login DN: cn=admin,dc=<도메인>,dc=co,dc=kr <br />
+password: **********
+
+로그인 후 dc에 password를 설정해준다.
+dc트리에서 dc 선택한 후 Add new attribute에서 password 선택 후 Password를 설정한다.
+
+-------------------------------------------------
+
+<b>이제 0번부터 9번 서버에 LDAP Client를 설치해 준다.</b>
+```bash
+$ sudo apt-get update
+$ sudo apt-get -y install libnss-ldap libpam-ldap ldap-utils nscd
+```
+
+첫번째 창에서 ldap://<1번 서버 ip주소> <br />
+두번째 창에서 dc=<도메인>,dc=co,dc=kr <br />
+세번째 창에서 LDAP version 선택 <br />
+네번째 창에서 YES <br />
+다섯번째 창에서 NO <br />
+여섯번째 창에서 cn=admin,dc=<도메인>,dc=co,dc=kr <br />
+일곱번째 창에서 비밀번호 설정 <br />
+
+- configure authentication
+```bash
+$ sudo vim /etc/nsswitch.conf
+```
+
+- nssitch.conf 파일에 아래 내용 수정
+```bash
+passwd:         compat ldap
+group:          compat ldap
+shadow:         compat ldap
+```
+
+- user의 홈 디렉토리 자동생성을 원하면 
+```bash
+$ sudo vim /etc/pam.d/common-session
+```
+
+- common-session 파일에 맨아래에 아래 내용 추가
+```bash
+session required        pam_mkhomedir.so skel=/etc/skel umask=077
+```
+
+- nscd 다시 시작
+```bash
+$ sudo service nscd restart
+```
+
+
+
+
+
+
+
 
