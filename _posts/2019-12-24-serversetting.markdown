@@ -129,8 +129,8 @@ $ echo "<ip address> <hostname>" | sudo tee -a /etc/hosts
 
 - ldap 설치하기
 ```bash
-sudo apt update
-sudo apt -y install slapd ldap-utils
+$ sudo apt update
+$ sudo apt -y install slapd ldap-utils
 ```
 설치할 때 admin의 비밀번호 설정을 할 수 있다.
 
