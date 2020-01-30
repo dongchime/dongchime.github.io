@@ -10,7 +10,7 @@ College of Computer Science
 Kookmin University
 
 * Location: Seoul, Korea
-* Email: daleyblind17 at kookmin.ac.kr
+* Email: cekim at kookmin.ac.kr
 * WWW: [https://dongchime.github.io](https://dongchime.github.io)
 
 ## Research Interest
