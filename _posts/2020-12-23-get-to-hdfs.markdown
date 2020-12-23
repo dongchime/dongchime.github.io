@@ -9,7 +9,7 @@ categories: jekyll update
 
 나 같은 경우는 [ClueWeb12](http://www.lemurproject.org/clueweb12/webgraph.php/) (84G Compressed; approximately 688G uncompressed) 를 받아야 했다.  
 
-terminal 에서 pipe("|") :을 이용해서 바로 HDFS 로 파일을 저장할 수 있다.
+terminal 에서 pipe 를 이용해서 바로 HDFS 로 파일을 저장할 수 있다.
 
 ```bash
 wget -O- http://www.lemurproject.org/clueweb12/webgraph.php/ClueWeb12_WebGraph_v2_0.txt.bz2 | bzip2 -dc | hdfs dfs -put - cw12.tsv
