@@ -17,7 +17,7 @@ Kookmin University
 * Large scale graph mining
 
 ## Teaching
-* Computer Programming 1, Teaching Assistant, Kookmin Univ. (Spring 2019)
+* Computer Programming 1, Teaching Assistant, Kookmin Univ. (Spring 2019, Spring 2020)
 
 ## Extra Activities
 * Administrator of cluster server (10 machines) in DMLab., Kookmin Univ.
