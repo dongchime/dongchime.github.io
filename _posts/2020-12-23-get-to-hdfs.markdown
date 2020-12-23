@@ -7,7 +7,7 @@ categories: jekyll update
 
 실험을 위해 아주 큰 데이터를 다운받아야 할 때가 있는데 서버의 용량이 충분하지 않아서 바로 HDFS 로 저장하고 싶을 때가 있다.
 
-나 같은 경우는 ClueWeb12 (84G Compressed; approximately 688G uncompressed) 를 받아야 했다.  
+나 같은 경우는 [ClueWeb12](http://www.lemurproject.org/clueweb12/webgraph.php/) (84G Compressed; approximately 688G uncompressed) 를 받아야 했다.  
 
 terminal 에서 pipe("|") :을 이용해서 바로 HDFS 로 파일을 저장할 수 있다.
 
